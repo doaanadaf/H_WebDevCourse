@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תרגיל WEB - מחשבון</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #111;
+            color: #ff4fad;
+            padding-top: 40px;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        .calc-wrapper {
+            background-color: #000;
+            border-radius: 30px;
+            padding: 25px 25px 30px;
+            max-width: 520px;
+            margin: 0 auto 40px;
+            border: 1px solid #222;
+        }
+
+        .calc-row {
+            margin-bottom: 12px;
+        }
+
+        .calc-label {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .form-control,
+        .form-select,
+        textarea {
+            background-color: #111;
+            border: 1px solid #555;
+            color: #ff4fad;
+        }
+
+        .form-control:focus,
+        .form-select:focus,
+        textarea:focus {
+            background-color: #111;
+            color: #ff4fad;
+            border-color: #ff4fad;
+            box-shadow: 0 0 0 0.2rem rgba(255, 79, 173, 0.3);
+        }
+
+        .btn-pink {
+            background-color: #ff4fad;
+            border-color: #ff4fad;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .btn-pink:hover {
+            background-color: #ff73c3;
+            border-color: #ff73c3;
+        }
+
+        .divider {
+            border-top: 1px dashed #888;
+            margin: 14px 0;
+        }
+
+        textarea#output {
+            width: 100%;
+            min-height: 180px;
+            resize: vertical;
+            background-color: #000;
+        }
+
+        .is-valid {
+            border-color: #28a745 !important;
+        }
+
+        .is-invalid {
+            border-color: #dc3545 !important;
+        }
+
+        .section-title {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- כפתורי דמו -->
+        <div class="row mb-4">
+            <div class="col-12 col-md-6 mb-2">
+                <button class="btn btn-secondary w-100" onclick="demoNative()">Native Types</button>
+            </div>
+            <div class="col-12 col-md-6 mb-2">
+                <button id="btn2" class="btn btn-outline-secondary w-100">
+                    Register Click From Code
+                </button>
+            </div>
+        </div>
+
+        <!-- מחשבון -->
+        <div class="calc-wrapper">
+
+            <!-- מספרים -->
+            <div class="row calc-row g-2">
+                <div class="col-6">
+                    <div class="calc-label">מספר ראשון</div>
+                    <input id="txt1" type="text" class="form-control" placeholder="מספר 1">
+                </div>
+
+                <div class="col-6">
+                    <div class="calc-label">מספר שני</div>
+                    <input id="txt2" type="text" class="form-control" placeholder="מספר 2">
+                </div>
+            </div>
+
+            <!-- פעולה + = + checkbox -->
+            <div class="row calc-row g-2 align-items-end">
+
+                <div class="col-6 col-sm-4">
+                    <div class="calc-label">Dropdown</div>
+                    <select id="operation" class="form-select">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select>
+                </div>
+
+                <div class="col-6 col-sm-2">
+                    <div class="calc-label">=</div>
+                    <button id="btnCalc" class="btn btn-pink w-100">=</button>
+                </div>
+
+                <div class="col-12 col-sm-6 mt-2 mt-sm-0">
+                    <!-- Checkbox ללא טקסט -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="chkAppend" checked>
+                        <label class="form-check-label" for="chkAppend"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- תוצאה -->
+            <div class="row calc-row">
+                <div class="col-12">
+                    <div class="section-title">תוצאה</div>
+                    <div class="border border-secondary rounded p-2" style="min-height: 36px;">
+                        <span id="lblRes"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- לוגים -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">לוגים</div>
+                    <textarea id="output"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- קובץ JS -->
+    <script src="index.js"></script>
+</body>
+
+</html>
